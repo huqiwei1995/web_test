@@ -1,0 +1,29 @@
+{% extends "webapp/base.html" %}
+{% load bootstrap3 %}
+
+{% block header %}
+<div style="padding:15px">
+    <h2>Log in to your account.</h2>
+</div>
+{% endblock header %}
+
+
+{% block content %}
+
+{% if form.errors %}
+<p>Your username and password didn't match. Please try again.</p>
+{% endif %}
+<div class="'container">
+    <div style="padding:15px; width:50%">
+        <form method="post" action="{% url 'users:login' %}" class="form">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% buttons %}
+            <button name="submit">log in</button>
+            {% endbuttons %}
+            <input type="hidden" name="next" value="{% url 'webapp:index' %}" />
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

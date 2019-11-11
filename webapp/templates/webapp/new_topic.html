@@ -1,0 +1,20 @@
+{% extends "webapp/base.html" %}
+{% load bootstrap3 %}
+{% block header %}
+<h2>Add a new topic</h2>
+{% endblock header %}
+
+{% block content %}
+<div class="container">
+    <div style="padding:1px; width:100%; height: 300%;">
+        <form method="post" action="{% url 'webapp:new_topic' %}" class="form">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+
+            {% buttons %}
+            <button name="submit" class="btn btn-primary">add topic</button>
+            {% endbuttons %}
+        </form>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends "webapp/base.html" %}
+{% block content %}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Topics</title>
+</head>
+<body>
+<p>Topics</p>
+<ul>
+    {% for topic in topics %}
+    <li>
+        <a href="{% url 'webapp:topic' topic.id %}">{{topic}}</a>
+    </li>
+    {% empty %}
+    <li>No topics have been added yet.</li>>
+    {% endfor %}
+</ul>
+<a href="{% url 'webapp:new_topic' %}">Add a new topic</a>
+</body>
+</html>
+
+{% endblock content %}
