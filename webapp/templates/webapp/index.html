@@ -1,14 +1,14 @@
 {% extends "webapp/base.html" %}
 {% block header %}
     <div class="jumbotron">
-        <h1 align="center">Test my website</h1>
+        <h1 align="center">My first website</h1>
     </div>
 {% endblock header %}
 
 {% block content %}
 
 <h2>
-    This website need to be improved. Just test it's fuction.
+    This website is under commissioning. <a href="{% url 'users:login' %}">sign in</a> or <a href="{% url 'users:register' %}">sign up</a> to make your own learning log.
 </h2>
 
 {% endblock content %}
